@@ -1,0 +1,14 @@
+---
+- name: Install Apache and Start the service 
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: Install Apache
+    yum:
+      name: "{{ ansible_local.custom.general.package }}"
+      state: latest
+
+  - name: Start Service
+    service:
+      name: "{{ ansible_local.custom.general.service }}"
+      state: "{{ ansible_local.custom.general.state }}"
