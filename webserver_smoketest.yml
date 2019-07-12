@@ -1,0 +1,8 @@
+---
+- name: Verify  the apache service
+  hosts: localhost
+  tasks:
+    - name: ensure the webserver is reachable
+      uri:
+        url: http://app1.0048.internal
+        status_code: 200
